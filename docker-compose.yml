@@ -1,0 +1,27 @@
+version: '3.3'
+services:
+    jira-software:
+        volumes:
+            - '/data/jira:/var/atlassian/application-data/jira'
+        container_name: jira
+        ports:
+            - '8080:8080'
+        image: atlassian/jira-software
+
+    bitbucket:
+        volumes:
+            - '/data/bitbucket:/var/atlassian/application-data/bitbucket'
+        container_name: bitbucket
+        ports:
+            - '7990:7990'
+            - '7999:7999'
+        image: atlassian/bitbucket
+
+    bamboo-server:
+        volumes:
+            - '/data/bamboo:/var/atlassian/application-data/bamboo'
+        container_name: bamboo-server
+        ports:
+            - '54663:54663'
+            - '8085:8085'
+        image: atlassian/bamboo-server
